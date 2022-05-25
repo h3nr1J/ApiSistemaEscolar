@@ -15,6 +15,7 @@ class CursoServices {
             });
         }
     }
+    //Crear Curso
     create(curso) {
         curso.codigoC = faker.datatype.uuid();
         this.cursos.push(curso)
