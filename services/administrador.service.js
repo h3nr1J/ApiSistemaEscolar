@@ -53,8 +53,8 @@ class AdministradorServices {
         return this.administradores
     }
 
-    findBy() {
-        return this.alumnos.find(element => element.codA == id)
+    findBy(id) {
+        return this.administradores.find(element => element.codA == id)
     }
 }
 

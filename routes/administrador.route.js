@@ -25,29 +25,29 @@ router.get('/:id',(req,res) => {
     res.status(200).json(administrador)
 })
 
-router.get('/docentes',(req,res) =>{
+router.get('/datos/docentes',(req,res) =>{
     const docentes = servicioDocente.findAll()
     res.status(200).json(docentes)
 })
 
-router.get('/docentes/:id',(req,res)=>{
+router.get('/datos/docentes/:id',(req,res)=>{
     const {id} = req.params
     const docente = servicioDocente.findBy(id)
     res.status(200).json(docente)
 })
 
-router.get('/alumnos',(req,res) => {
+router.get('/datos/alumnos',(req,res) => {
     const alumnos = servicioAlumno.findAll()
     res.status(200).json(alumnos)
 })
 
-router.get('/alumnos/:id', (req, res) => {
+router.get('/datos/alumnos/:id', (req, res) => {
     const {id} = req.params
     const alumnos = servicioAlumno.findBy(id)
     res.status(200).json(alumnos)
 })
 
-router.get('/aulas',(req,res) => {
+router.get('/datos/aulas',(req,res) => {
     const aulas = servicioAula.findAll()
     res.status(200).json(aulas)
 })
