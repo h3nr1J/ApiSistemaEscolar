@@ -26,12 +26,12 @@ class AsistenciaServices {
     update(id, asistencia) {
         const AsistenciaActualizar = this.findBy(id);
         if (AsistenciaActualizar != undefined) {
-          AsistenciaActualizarUnidad.nroSesionRA = asistencia.nroSesionRA;
-          AsistenciaActualizarUnidad.fechaRA = asistencia.fechaRA;
-          AsistenciaActualizarUnidad.horaInicio = asistencia.horaInicio;
-          AsistenciaActualizarUnidad.horaFin = asistencia.horaFin;
-          AsistenciaActualizarUnidad.docente = asistencia.docente;
-          AsistenciaActualizarUnidad.Unidad = asistencia.Unidad;
+          AsistenciaActualizar.nroSesionRA = asistencia.nroSesionRA;
+          AsistenciaActualizar.fechaRA = asistencia.fechaRA;
+          AsistenciaActualizar.horaInicio = asistencia.horaInicio;
+          AsistenciaActualizar.horaFin = asistencia.horaFin;
+          AsistenciaActualizar.docente = asistencia.docente;
+          AsistenciaActualizar.Unidad = asistencia.Unidad;
 
         }
       }

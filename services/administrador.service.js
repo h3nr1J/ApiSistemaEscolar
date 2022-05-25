@@ -46,7 +46,7 @@ class AdministradorServices {
     }
 
     delete(id) {
-        this.administrador.splice(this.administrador.indexOf(this.findBy(id)), 1)
+        this.administradores.splice(this.administradores.indexOf(this.findBy(id)), 1)
     }
 
     findAll() {

@@ -27,12 +27,13 @@ class DocenteServices {
   update(id, docente) {
     const DocenteActualizar = this.findBy(id);
     if (DocenteActualizar != undefined) {
-      DocenteActualizarcorreo.contrasenia = docente.contrasenia;
-      DocenteActualizarcorreo.nombre = docente.nombre;
-      DocenteActualizarcorreo.especialidad = docente.especialidad;
-      DocenteActualizarcorreo.apellidoP = docente.apellidoP;
-      DocenteActualizarcorreo.apellidoM = docente.apellidoM;
-      DocenteActualizarcorreo.celular = docente.celular;
+      DocenteActualizar.usuario  = docente.usuario;
+      DocenteActualizar.contrasenia = docente.contrasenia;
+      DocenteActualizar.nombre = docente.nombre;
+      DocenteActualizar.especialidad = docente.especialidad;
+      DocenteActualizar.apellidoP = docente.apellidoP;
+      DocenteActualizar.apellidoM = docente.apellidoM;
+      DocenteActualizar.celular = docente.celular;
       DocenteActualizar.correo = docente.correo;
 
     }

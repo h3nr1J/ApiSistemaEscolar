@@ -16,7 +16,7 @@ class AulaServices {
     }
     create(aula) {
         aula.codigoAu = faker.datatype.uuid();
-        this.aulas.push(curso)
+        this.aulas.push(aula)
     }
     update(id, aula) {
         const aulaUpdate = this.findBy(id)

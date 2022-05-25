@@ -52,14 +52,25 @@ router.get('/datos/aulas',(req,res) => {
     res.status(200).json(aulas)
 })
 
-router.get('/aulas/:id',(req,res) => {
+router.get('/datos/aulas/:id',(req,res) => {
     const {id} = req.params
     const aulas = servicioAula.findBy(id)
     res.status(200).json(aulas)
 })
 
+router.get('/datos/cursos',(req,res) => {
+  const cursos = servicioCurso.findAll()
+  res.status(200).json(cursos)
+})
+
+router.get('/datos/cursos/:id',(req,res) => {
+  const {id} = req.params
+  const curso = servicioCurso.findBy(id)
+  res.status(200).json(curso)
+})
+
 // Metodos POST
-router.post('/', (req, res) => {
+router.post('/crear/', (req, res) => {
     const body = req.body
     servicioAdministrador.create(body)
     res.status(200).json({
@@ -68,16 +79,16 @@ router.post('/', (req, res) => {
     })
 })
 
-router.post('/alumno', (req, res) => {
+router.post('/crear/alumno', (req, res) => {
     const body = req.body
     servicioAlumno.create(body)
     res.status(200).json({
-        mensaje: 'registro de docente existoso',
+        mensaje: 'Registro de alumno existoso',
         datos: body
     })
 })
 
-router.post('/docente', (req, res) => {
+router.post('/crear/docente', (req, res) => {
     const body = req.body
     servicioDocente.create(body)
     res.status(200).json({
@@ -86,7 +97,7 @@ router.post('/docente', (req, res) => {
     })
 })
 
-router.post('/curso', (req, res) => {
+router.post('/crear/curso', (req, res) => {
     const body = req.body
     servicioCurso.create(body)
     res.status(200).json({
@@ -95,7 +106,7 @@ router.post('/curso', (req, res) => {
     })
 })
 
-router.post('/aula', (req, res) => {
+router.post('/crear/aula', (req, res) => {
     const body = req.body
     servicioAula.create(body)
     res.status(200).json({
@@ -105,7 +116,7 @@ router.post('/aula', (req, res) => {
 })
 
 // Metodos PUT
-router.put('alumno/:id', (req, res) => {
+router.put('/editar/alumno/:id', (req, res) => {
     const { id } = req.params
     const body = req.body
     servicioAlumno.update(id, body)
@@ -115,7 +126,7 @@ router.put('alumno/:id', (req, res) => {
     })
 })
 
-router.put('docente/:id', (req, res) => {
+router.put('/editar/docente/:id', (req, res) => {
     const { id } = req.params
     const body = req.body
     servicioDocente.update(id, body)
@@ -125,7 +136,7 @@ router.put('docente/:id', (req, res) => {
     })
 })
 
-router.put('aula/:id', (req, res) => {
+router.put('/editar/aula/:id', (req, res) => {
     const { id } = req.params
     const body = req.body
     servicioAula.update(id, body)
@@ -135,7 +146,7 @@ router.put('aula/:id', (req, res) => {
     })
 })
 
-router.put('curso/:id', (req, res) => {
+router.put('/editar/curso/:id', (req, res) => {
     const { id } = req.params
     const body = req.body
     servicioCurso.update(id, body)
@@ -146,7 +157,7 @@ router.put('curso/:id', (req, res) => {
 })
 
 // Metodos DELETE
-router.delete('/:id',(req,res) => {
+router.delete('/eliminar/:id',(req,res) => {
     const { id } = req.params
     const datoEliminado = servicioAdministrador.findBy(id)
     servicioAdministrador.delete(id)
@@ -155,7 +166,7 @@ router.delete('/:id',(req,res) => {
         dato: datoEliminado
     })
 })
-router.delete('/alumnos/:id', (req,res) => {
+router.delete('/eliminar/alumnos/:id', (req,res) => {
     const {id} = req.params
     const datoEliminado = servicioAlumno.findBy(id)
     servicioAlumno.delete(id)
@@ -165,7 +176,7 @@ router.delete('/alumnos/:id', (req,res) => {
     })
 })
 
-router.delete('/docente/:id', (req,res) => {
+router.delete('/eliminar/docente/:id', (req,res) => {
     const {id} = req.params
     const datoEliminado = servicioDocente.findBy(id)
     servicioDocente.delete(id)
@@ -175,8 +186,17 @@ router.delete('/docente/:id', (req,res) => {
     })
 })
 
+router.delete('/eliminar/aula/:id', (req,res) => {
+  const {id} = req.params
+  const datoEliminado = servicioAula.findBy(id)
+  servicioAula.delete(id)
+  res.status(200).json({
+      mensaje: "Registro eliminado",
+      dato: datoEliminado
+  })
+})
 
-router.delete('/curso/:id', (req,res) => {
+router.delete('/eliminar/curso/:id', (req,res) => {
     const {id} = req.params
     const datoEliminado = servicioCurso.findBy(id)
     servicioCurso.delete(id)

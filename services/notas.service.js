@@ -7,12 +7,12 @@ class NotaServices {
     generarDatos() {
         const limite = 10;
         for (let i = 0; i < limite; i++) {
-            this.cursos.push({
+            this.notas.push({
               codN: faker.datatype.uuid(),
               unidadUno: Math.floor(Math.random() * (20 - 1)) + 1,
               unidadDos: Math.floor(Math.random() * (20 - 1)) + 1,
               unidadTres: Math.floor(Math.random() * (20 - 1)) + 1,
-              PromedioF:(unidadUno+unidadDos+unidadTres)/3,
+              PromedioF:(this.unidadUno + this.unidadDos + this.unidadTres)/3,
               alumno: faker.name.firstName(),
               docente: faker.name.firstName()
             });
